@@ -12,7 +12,7 @@ int TRANS=6;
 int IN1=7;
 int IN2=8;
 int isSet=9;
-byte slave_spi(byte dat)
+byte slave_spi(byte dat) //SPI通信，使用软件通信
 {
     byte spi_receive=0;
     while(!digitalRead(SPI_SS));
@@ -49,7 +49,7 @@ void setup() {
   pinMode(IN1,OUTPUT);
   pinMode(IN2,OUTPUT);
 }
-void motor_pwm()
+void motor_pwm() //PWM波输出，使用Arduino自带的定时器输出方式
 {
   TCCR2A=_BV(COM2B1)|_BV(WGM21)|_BV(WGM20);
   TCCR2B=_BV(CS22);

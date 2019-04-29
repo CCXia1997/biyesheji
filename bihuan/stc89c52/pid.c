@@ -5,7 +5,7 @@
 uchar num;
 uchar num1=0;
 uchar display_num=0;
-uchar set_point;
+uchar set_point; //这里的设定值指设定的气压值经过传感器公式换算后的电压值
 uchar actual_point;
 uchar pwm_point;
 uint kpa_point=0;
@@ -130,7 +130,7 @@ void uart_init()
 	ES=1;
 	EA=1;
 }
-void uart_sendbyte(uchar byte)
+void uart_sendbyte(uchar byte) //串口发送数据
 {
 	SBUF=byte;
 	while(!TI)
@@ -173,7 +173,7 @@ void main()
 		}
 	}
 }
-void ser() interrupt 4
+void ser() interrupt 4 //串口通信中断处理
 {
 	ES=0;
 	if(RI==1)

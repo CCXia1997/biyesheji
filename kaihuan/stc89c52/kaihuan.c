@@ -4,10 +4,10 @@
 #define uint unsigned int
 uchar num;
 uchar display_num=0;
-uchar set_point;
-uchar actual_point;
-uchar pwm_point;
-uint kpa_point=0;
+uchar set_point; //设定值，这里的设定值是指PWM波的占空比，这边用100~200来对应0~255的占空比
+uchar actual_point; //实际值，这里指压力传感器输出的电压值
+uchar pwm_point; //PWM波的占空比
+uint kpa_point=0; //实际换算后的气压值，单位为kpa
 uchar isSetOrStop;
 uchar motor_mode;
 //uchar code table[]="SetPoint:";
@@ -54,7 +54,7 @@ void write_data(uchar date)
 	delay(5);
 	lcden=0;
 }
-uchar master_spi(uchar dat)
+uchar master_spi(uchar dat) //SPI通信，使用软件通信
 {
 	uchar spi_receive;
 	SCK=1;
