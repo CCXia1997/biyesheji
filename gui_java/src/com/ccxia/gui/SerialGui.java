@@ -138,7 +138,6 @@ public class SerialGui {
 				{
 					try {
 						SerialTool.sendToPort(s,settings);
-						settings++;
 						Thread.sleep(200);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
